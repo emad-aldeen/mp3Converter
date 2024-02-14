@@ -38,7 +38,7 @@ def login():
   else:
     return "invalid credentials", 401
 
-@server.route("/validate", method=["POST"])
+@server.route("/validate", methods=["POST"])
 def validate():
   encoded_jwt = request.headers["Authorization"]
   
@@ -69,4 +69,4 @@ def createJWT(username, secret, authz):
   )
   
 if __name__ == "__main__":
-  server.run(hos='0.0.0.0', port=5000)
+  server.run(host='0.0.0.0', port=5000)
